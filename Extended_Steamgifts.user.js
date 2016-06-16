@@ -1,20 +1,22 @@
 // ==UserScript==
 // @name		Extended Steamgifts
 // @description	New features for Steamgifts.com
-// @author		Nandee
+// @author		Nandee, zypA13510
 // @namespace	esg
 // @include		*steamgifts.com*
-// @version		2.3.3
-// @downloadURL	https://github.com/nandee95/Extended_Steamgifts/raw/master/Extended_Steamgifts.user.js
-// @updateURL	https://github.com/nandee95/Extended_Steamgifts/raw/master/Extended_Steamgifts.user.js
+// @version		2.3.3.13510
+// @downloadURL	https://github.com/zypA13510/Extended_Steamgifts/raw/master/Extended_Steamgifts.user.js
+// @updateURL	https://github.com/zypA13510/Extended_Steamgifts/raw/master/Extended_Steamgifts.user.js
 // @supportURL  http://steamcommunity.com/groups/extendedsg/discussions/0/
-// @icon		https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/logo.png
-// @homepage	https://github.com/nandee95/Extended_Steamgifts
+// @icon		https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/logo.png
+// @homepage	https://github.com/zypA13510/Extended_Steamgifts
 // @grant	   none
 // @license	 MIT
 // ==/UserScript==
 /*
 Changelog:
+.13510
+- Forked version.
 1.5.2[BETA] (2015. 03. 24.)
 - First release
 1.5.3[BETA] (2015. 03. 25.)
@@ -383,7 +385,7 @@ var account_lv=Number($(account).find("span:nth-child(2)").attr("title"));
 $(account).css("box-shadow","inset "+(($(account).width()*(account_lv-Math.floor(account_lv))-2.5))+"px 0 5px rgba(0,255,50,0.15)");
 
 //ESG icon
-$("header .nav__left-container").prepend('<img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/logo_trans.png" height="32px" width="32px" title="Extended Steamgifts '+ver+'&#013;By: Nandee">');
+$("header .nav__left-container").prepend('<img src="https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/logo_trans.png" height="32px" width="32px" title="Extended Steamgifts '+ver+'&#013;By: Nandee">');
 
 //Giveaway Signature Generator
 if (path.match('^/giveaway/')&&Number(GM_getValue("esg_gsg", 1))) {
@@ -517,8 +519,8 @@ function display_about() {
 		</div></div>	\
 		<div class=\"form__rows\"><div class=\"form__row\">	\
 		<div class=\"form__heading\"><div class=\"form__heading__number\">1.</div><div class=\"form__heading__text\">Extended Steamgifts " + ver + "</div></div>	\
-		<div class=\"form__row__indent markdown\">Author: Nandee<br>Copyright: &copy; 2014-2016<br>Licensed under the <a href=\"https://github.com/nandee95/Extended_Steamgifts/blob/master/LICENSE.md\" target=\_blank\">MIT license</a><br><br>Steam group:<a href=\"http://steamcommunity.com/groups/extendedsg\">steamcommunity.com/groups/extendedsg</a>	\
-		<br>GitHub: <a href=\"https://github.com/nandee95/Extended_Steamgifts\">github.com/nandee95/Extended_Steamgifts</a></div></div>\
+		<div class=\"form__row__indent markdown\">Author: Nandee<br>Copyright: &copy; 2014-2016<br>Licensed under the <a href=\"https://github.com/zypA13510/Extended_Steamgifts/blob/master/LICENSE.md\" target=\_blank\">MIT license</a><br><br>Steam group:<a href=\"http://steamcommunity.com/groups/extendedsg\">steamcommunity.com/groups/extendedsg</a>	\
+		<br>GitHub: <a href=\"https://github.com/zypA13510/Extended_Steamgifts\">github.com/zypA13510/Extended_Steamgifts</a></div></div>\
 		<div class=\"form__row\">	\
 		<div class=\"form__heading\"><div class=\"form__heading__number\">2.</div><div class=\"form__heading__text\">About me:</div></div>	\
 		<div class=\"form__row__indent\">I'm usually working on this addon in my freetime.<br>It take me a lot of time to keep it working.<br>If you like this addon please think about a donation!<br>Enjoy! :D</div></div>\
@@ -529,12 +531,12 @@ function display_about() {
 		Pledgie campaign:<br>	\
 		<a href='https://pledgie.com/campaigns/31484'><img alt='Click here to lend your support to: Extended Steamgifts and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/31484.png?skin_name=chrome' border='0' ></a><br>	\
 		Steam donate (tradeoffer):<br>	\
-		<a href='https://steamcommunity.com/tradeoffer/new/?partner=95793561&amp;token=HxnczDWg'><img src='https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/steam_donate.png' style='max-width:100%;'></a><br>	\
+		<a href='https://steamcommunity.com/tradeoffer/new/?partner=95793561&amp;token=HxnczDWg'><img src='https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/steam_donate.png' style='max-width:100%;'></a><br>	\
 		Whitelist: \
 		<a href=\"https://www.steamgifts.com/user/Nandee\" target=\"_blank\"><div class=\"giveaway__columns\"><div style=\"width:130px !important\" class=\"giveaway__column--whitelist\" title=\"Whitelist\"><i class=\"fa fa-fw fa-heart\"></i> Whitelist</div></div></div>	\
 		<div class=\"form__row\">	\
 		<div class=\"form__heading\"><div class=\"form__heading__number\">4.</div><div class=\"form__heading__text\">Contact:</div></div>	\
-		<div class=\"form__row__indent markdown\"><a href=\"http://steamcommunity.com/id/nandee95\" target=\"_blank\">Steam profile</a><br><a href=\"https://www.steamgifts.com/user/Nandee\" target=\"_blank\">SteamGifts profile</a></div></div>\
+		<div class=\"form__row__indent markdown\"><a href=\"http://steamcommunity.com/id/zypA13510\" target=\"_blank\">Steam profile</a><br><a href=\"https://www.steamgifts.com/user/Nandee\" target=\"_blank\">SteamGifts profile</a></div></div>\
 		</div>	\
 		");
 }
@@ -770,10 +772,10 @@ if($(".leaderboard").height()<10)
 if ($(".pagination").length > 0 && Number(GM_getValue("esg_autoscroll", 1))) {
 	var loading = false;
 	$('.widget-container--margin-top').remove();
-	$('.giveaway__row-outer-wrap:last').parent().after('<img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
-	$('.table:last').after('<br><img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
-    if($(".comments__entity").length === 0) $('.comments:last').after('<br><img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
-    else $('.comments__entity:last').parent().after('<br><img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
+	$('.giveaway__row-outer-wrap:last').parent().after('<img src="https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
+	$('.table:last').after('<br><img src="https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
+    if($(".comments__entity").length === 0) $('.comments:last').after('<br><img src="https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
+    else $('.comments__entity:last').parent().after('<br><img src="https://raw.githubusercontent.com/zypA13510/Extended_Steamgifts/master/img/loading.gif" class="page-loading"></div>');
 	$('.page-loading').hide();
 	var page = currentpage;
 	$('.page__heading__breadcrumbs:first').append('<i class="fa fa-angle-right"></i><a href="' + window.location.href + '"> Page ' + page + '</a>');
@@ -1236,7 +1238,7 @@ $("header .nav__left-container").append("	\
 	<p class=\"nav__row__summary__description\">Report bugs here!		\</p>		\
 	</div>		\
 	</a>	\
-	<a class=\"nav__row\" target=\"blank\" href=\"https://github.com/nandee95/Extended_Steamgifts\">		\
+	<a class=\"nav__row\" target=\"blank\" href=\"https://github.com/zypA13510/Extended_Steamgifts\">		\
 	<i class=\"icon-green fa fa-fw fa-github\"></i>		\
 	<div class=\"nav__row__summary\">		\
 	<p class=\"nav__row__summary__name\">Source Code</p>		\
