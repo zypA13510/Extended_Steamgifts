@@ -10,6 +10,7 @@
 // @supportURL  http://steamcommunity.com/groups/extendedsg/discussions/0/
 // @icon		https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/logo.png
 // @homepage	https://github.com/nandee95/Extended_Steamgifts
+// @require https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js
 // @grant	   none
 // @license	 MIT
 // ==/UserScript==
@@ -457,6 +458,7 @@ function display_options() {
 	addToOptions("Enter/Remove button", "esg_enterremove", 1);
 	addToOptions("Endless scrolling", "esg_autoscroll", 1);
 	addToOptions("Display chances", "esg_chances", 1);
+	addToOptions("Chance forecast", "esg_chanceforecast", 0);
 	addToOptions("Fixed header", "esg_fixedheader", 1);
 	addToOptions("Refresh points (60sec)", "esg_refresh", 0);
 	addToOptions("Scroll to top button", "esg_scrolltop", 1);
@@ -971,12 +973,12 @@ $.fn.format_ga = function() {
 		e = e.substring(0, getPos(e, ' ', 1));
 		var entries = Number(e);
 
-		var chance = get_chance(entries + (entered?0:1));
+		var time = $(ga).find(".giveaway__columns").find("div:first").find("span").attr("title");
+		var active = (get_ms_from_now(time) < 0) ? 1 : 0;
+		var time2 = $(ga).find(".giveaway__column--width-fill span").attr("title");
+		var newga = (get_ms_from_now(time2) < 3600000 || Math.abs(get_ms_from_now(time)) < 60000) ? 1 : 0;
 
-		var time = $(ga).find(".giveaway__columns").find("div:first");
-		var active = (time.text().indexOf('ago') > -1) ? 0 : 1;
-		var time2 = $(ga).find(".giveaway__column--width-fill span");
-		var newga = (time2.text().indexOf('minute') > -1 || time.text().indexOf('second') > -1) ? 1 : 0;
+		var chance = get_chance(entries + (entered?0:1), time2, time);
 
 		var req = Number($(ga).find(".giveaway__heading__thin:last").text().replace("(", "").replace(")", "").replace("P", ""));
 		var has = Number($(".nav__points").text());
@@ -1130,9 +1132,11 @@ if (Number(GM_getValue("esg_refresh", 0))) {
 }
 
 //Chance calculator
-function get_chance(entries)
+function get_chance(entries, startdate, enddate)
 {
 	var chance = 0;
+	if (Number(GM_getValue("esg_chanceforecast", 1)))
+		entries = (entries) * (get_ms_from_now(startdate) - get_ms_from_now(enddate)) / get_ms_from_now(startdate);
 	if (entries <= 0)
 		chance = 100;
 	else
@@ -1140,6 +1144,11 @@ function get_chance(entries)
 	if (chance > 100)
 		chance = 100;
 	return chance;
+}
+
+function get_ms_from_now(strDate)
+{
+	return Date.parse(strDate).getElapsed();
 }
 
 //Chances on entered page
